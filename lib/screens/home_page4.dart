@@ -137,7 +137,7 @@ class _HomePage4State extends State<HomePage4> {
                       children: [
                         Row(
                           children: [
-                            _createContainerLeading('image/carDelivery.png'),
+                            _createContainerLeadingColum('image/carDelivery.png'),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -164,7 +164,7 @@ class _HomePage4State extends State<HomePage4> {
                         SizedBox(height: 10),
                         Row(
                           children: [
-                            _createContainerLeading('image/cupomDesc.png'),
+                            _createContainerLeadingColum('image/cupomDesc.png'),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -269,6 +269,7 @@ class _HomePage4State extends State<HomePage4> {
 
   Widget _createItemsColum(String image, String type, String price){
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         _createContainerLeading(image),
         Text(
@@ -292,16 +293,12 @@ class _HomePage4State extends State<HomePage4> {
                   ),
                 ),
                 SizedBox(width: 210),
-                Row(
-                  children: [
-                    Text(
-                      'x',
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ],
+                Text(
+                  'x',
+                  style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.white,
+                  ),
                 ),
               ],
             ),
@@ -370,6 +367,34 @@ class _HomePage4State extends State<HomePage4> {
           ],
         )
       ],
+    );
+  }
+
+  Widget _createContainerLeadingColum(String image) {
+    return Align(
+      alignment: Alignment.centerLeft,
+      child: Column(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Colors.white70,
+              boxShadow: [
+                BoxShadow(color: Colors.black12, blurRadius: 10),
+              ],
+            ),
+            margin: EdgeInsets.only(left: 10, right: 20),
+            width: 60,
+            height: 60,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(image, scale: 4, color: Colors.white),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 
